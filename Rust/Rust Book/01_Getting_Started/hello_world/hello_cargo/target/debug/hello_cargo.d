@@ -1,0 +1,1 @@
+/home/aditya/Documents/Learning/Rust/Rust\ Book/01_Getting_Started/hello_world/hello_cargo/target/debug/hello_cargo: /home/aditya/Documents/Learning/Rust/Rust\ Book/01_Getting_Started/hello_world/hello_cargo/src/main.rs
