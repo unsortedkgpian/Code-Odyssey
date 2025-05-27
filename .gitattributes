@@ -1,0 +1,12 @@
+# Exclude build files and configs from language detection
+Makefile linguist-vendored
+*.make linguist-vendored
+Cargo.lock linguist-generated
+go.mod linguist-vendored
+go.sum linguist-generated
+package-lock.json linguist-generated
+*.toml linguist-vendored
+
+# Documentation files
+*.md linguist-documentation
+README* linguist-documentation
