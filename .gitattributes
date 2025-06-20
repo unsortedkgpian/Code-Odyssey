@@ -10,7 +10,11 @@ dist/** linguist-generated=true
 venv/** linguist-vendored=true
 env/** linguist-vendored=true
 
-# Mark configuration files as vendored
+# Mark Rust build artifacts as generated
+target/** linguist-generated=true
+Cargo.lock linguist-generated=true
+
+# Mark configuration files as vendored (but keep Cargo.toml as Rust)
 *.lock linguist-vendored=true
 package-lock.json linguist-vendored=true
 Pipfile.lock linguist-vendored=true
@@ -24,6 +28,9 @@ docs/** linguist-documentation=true
 # Explicitly include your source code
 *.py linguist-detectable=true
 *.rs linguist-detectable=true
+
+# Force Cargo.toml to be detected as Rust (instead of "Other")
+Cargo.toml linguist-language=Rust
 
 # If you have C extension files from Python packages, mark them as vendored
 *.c linguist-vendored=true
