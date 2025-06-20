@@ -1,0 +1,35 @@
+# Exclude common auto-generated and dependency files from language stats
+*.pyc linguist-detectable=false
+*.pyo linguist-detectable=false
+*.pyd linguist-detectable=false
+__pycache__/ linguist-detectable=false
+*.egg-info/ linguist-detectable=false
+build/ linguist-detectable=false
+dist/ linguist-detectable=false
+.venv/ linguist-detectable=false
+venv/ linguist-detectable=false
+env/ linguist-detectable=false
+
+# Exclude configuration files
+*.json linguist-detectable=false
+*.yml linguist-detectable=false
+*.yaml linguist-detectable=false
+*.toml linguist-detectable=false
+*.cfg linguist-detectable=false
+*.ini linguist-detectable=false
+requirements.txt linguist-detectable=false
+Pipfile linguist-detectable=false
+Pipfile.lock linguist-detectable=false
+
+# Exclude documentation
+*.md linguist-documentation=true
+*.rst linguist-documentation=true
+docs/ linguist-documentation=true
+
+# Include only your source code
+*.py linguist-detectable=true
+*.rs linguist-detectable=true
+
+# If you have specific directories with only your code, you can specify them
+# src/ linguist-detectable=true
+# app/ linguist-detectable=true
