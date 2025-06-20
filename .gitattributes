@@ -1,35 +1,32 @@
-# Exclude common auto-generated and dependency files from language stats
-*.pyc linguist-detectable=false
-*.pyo linguist-detectable=false
-*.pyd linguist-detectable=false
-__pycache__/ linguist-detectable=false
-*.egg-info/ linguist-detectable=false
-build/ linguist-detectable=false
-dist/ linguist-detectable=false
-.venv/ linguist-detectable=false
-venv/ linguist-detectable=false
-env/ linguist-detectable=false
+# Mark common auto-generated files as vendored/generated
+*.pyc linguist-generated=true
+*.pyo linguist-generated=true
+*.pyd linguist-generated=true
+__pycache__/** linguist-generated=true
+*.egg-info/** linguist-generated=true
+build/** linguist-generated=true
+dist/** linguist-generated=true
+.venv/** linguist-vendored=true
+venv/** linguist-vendored=true
+env/** linguist-vendored=true
 
-# Exclude configuration files
-*.json linguist-detectable=false
-*.yml linguist-detectable=false
-*.yaml linguist-detectable=false
-*.toml linguist-detectable=false
-*.cfg linguist-detectable=false
-*.ini linguist-detectable=false
-requirements.txt linguist-detectable=false
-Pipfile linguist-detectable=false
-Pipfile.lock linguist-detectable=false
+# Mark configuration files as vendored
+*.lock linguist-vendored=true
+package-lock.json linguist-vendored=true
+Pipfile.lock linguist-vendored=true
+poetry.lock linguist-vendored=true
 
-# Exclude documentation
+# Mark documentation
 *.md linguist-documentation=true
-*.rst linguist-documentation=true
-docs/ linguist-documentation=true
+README.* linguist-documentation=true
+docs/** linguist-documentation=true
 
-# Include only your source code
+# Explicitly include your source code
 *.py linguist-detectable=true
 *.rs linguist-detectable=true
 
-# If you have specific directories with only your code, you can specify them
-# src/ linguist-detectable=true
-# app/ linguist-detectable=true
+# If you have C extension files from Python packages, mark them as vendored
+*.c linguist-vendored=true
+*.h linguist-vendored=true
+*.pyx linguist-vendored=true
+*.pxd linguist-vendored=true
