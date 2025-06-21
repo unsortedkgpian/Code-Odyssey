@@ -1,39 +1,24 @@
-# Mark common auto-generated files as vendored/generated
-*.pyc linguist-generated=true
-*.pyo linguist-generated=true
-*.pyd linguist-generated=true
-__pycache__/** linguist-generated=true
-*.egg-info/** linguist-generated=true
-build/** linguist-generated=true
-dist/** linguist-generated=true
-.venv/** linguist-vendored=true
-venv/** linguist-vendored=true
-env/** linguist-vendored=true
+# Explicitly mark source languages
+*.rs linguist-language=Rust
+*.py linguist-language=Python
 
-# Mark Rust build artifacts as generated
-target/** linguist-generated=true
-Cargo.lock linguist-generated=true
+# Be more aggressive about excluding Python artifacts
+*.pyc linguist-vendored=true
+*.pyo linguist-vendored=true
+*.pyd linguist-vendored=true
+__pycache__/ linguist-vendored=true
+*.egg-info/ linguist-vendored=true
+build/ linguist-vendored=true
+dist/ linguist-vendored=true
+.venv/ linguist-vendored=true
+venv/ linguist-vendored=true
+env/ linguist-vendored=true
 
-# Mark configuration files as vendored (but keep Cargo.toml as Rust)
-*.lock linguist-vendored=true
-package-lock.json linguist-vendored=true
-Pipfile.lock linguist-vendored=true
-poetry.lock linguist-vendored=true
+# Rust artifacts
+target/ linguist-vendored=true
+Cargo.lock linguist-vendored=true
 
-# Mark documentation
+# Documentation
 *.md linguist-documentation=true
-README.* linguist-documentation=true
-docs/** linguist-documentation=true
-
-# Explicitly include your source code
-*.py linguist-detectable=true
-*.rs linguist-detectable=true
-
-# Force Cargo.toml to be detected as Rust (instead of "Other")
-Cargo.toml linguist-language=Rust
-
-# If you have C extension files from Python packages, mark them as vendored
-*.c linguist-vendored=true
-*.h linguist-vendored=true
-*.pyx linguist-vendored=true
-*.pxd linguist-vendored=true
+*.txt linguist-documentation=true
+*.rst linguist-documentation=true
