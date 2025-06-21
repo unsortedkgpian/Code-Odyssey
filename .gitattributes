@@ -1,24 +1,10 @@
-# Explicitly mark source languages
-*.rs linguist-language=Rust
-*.py linguist-language=Python
 
-# Be more aggressive about excluding Python artifacts
-*.pyc linguist-vendored=true
-*.pyo linguist-vendored=true
-*.pyd linguist-vendored=true
-__pycache__/ linguist-vendored=true
-*.egg-info/ linguist-vendored=true
-build/ linguist-vendored=true
-dist/ linguist-vendored=true
-.venv/ linguist-vendored=true
-venv/ linguist-vendored=true
-env/ linguist-vendored=true
+# Prioritize Rust code and ensure it is always detected
+*.rs linguist-detectable=true
 
-# Rust artifacts
-target/ linguist-vendored=true
-Cargo.lock linguist-vendored=true
+# Ignore the FastApi folder from language stats
+FastApi/* linguist-documentation
 
-# Documentation
-*.md linguist-documentation=true
-*.txt linguist-documentation=true
-*.rst linguist-documentation=true
+# Optionally exclude other folders if needed later:
+# scripts/* linguist-documentation
+# tests/* linguist-documentation
