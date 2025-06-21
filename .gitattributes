@@ -12,6 +12,19 @@ FastApi/*/venv/* linguist-vendored
 FastApi/Sanjeev/main.py linguist-vendored=false
 FastApi/Chai_aur_code/main.py linguist-vendored=false
 
+# Exclude unwanted languages from detection
+*.pyx linguist-vendored
+*.pxd linguist-vendored
+*.m linguist-vendored
+*.mm linguist-vendored
+*.sh linguist-vendored
+*.bash linguist-vendored
+*.ps1 linguist-vendored
+*.psm1 linguist-vendored
+Makefile linguist-vendored
+*.mk linguist-vendored
+*.make linguist-vendored
+
 # Ensure main project directories are included
 Rust/* linguist-detectable=true
 Fortan/* linguist-detectable=true
