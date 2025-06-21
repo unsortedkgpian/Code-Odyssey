@@ -1,16 +1,18 @@
 
-# Prioritize Rust code and ensure it is always detected
+# Enable detection for all main project languages
 *.rs linguist-detectable=true
+*.c linguist-detectable=true
+*.f90 linguist-detectable=true
 
-# Exclude Python files from language detection to prioritize Rust
-FastApi/* linguist-vendored
+# Exclude virtual environments and dependencies from language detection
+FastApi/*/venv/* linguist-vendored
+
+# Exclude all Python files by default, then include only main.py files
 *.py linguist-vendored
+FastApi/Sanjeev/main.py linguist-vendored=false
+FastApi/Chai_aur_code/main.py linguist-vendored=false
 
-# Keep only core project files for language detection
-# If you have specific Python files that are part of your main project, 
-# you can override this by adding specific paths with linguist-vendored=false
-
-# Exclude other languages from detection if not main focus
-*.c linguist-documentation
-Fortan/* linguist-documentation
-C/* linguist-documentation
+# Ensure main project directories are included
+Rust/* linguist-detectable=true
+Fortan/* linguist-detectable=true
+C/* linguist-detectable=true
