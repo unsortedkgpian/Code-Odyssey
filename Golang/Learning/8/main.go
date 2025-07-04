@@ -22,4 +22,12 @@ func main(){
 
 	var stringa [4]string 
 	fmt.Println(stringa)
+
+
+	numso := [3]int{3,44,2}
+	fmt.Println(numso)
+
+
+	twodnums:=[3][2]int{{4,2},{8,0}}
+	fmt.Println(twodnums);
 }
