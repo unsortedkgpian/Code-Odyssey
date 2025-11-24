@@ -89,6 +89,11 @@ fn main(){
 
 
 
+    // The push_str method on the String Datatype 
+    let mut nano = String::from("Tata Nano");
+    println!("The car is {nano}");
+    nano.push_str(" by TATA");
+    println!("The car is {nano}");
 
     // age variable exists here
 }// age variable goes out of scope here 
