@@ -51,6 +51,7 @@
 //
 
 
+use  std::any::type_name_of_val;
 
 fn main(){
     let age:i32 = 33;
@@ -73,7 +74,20 @@ fn main(){
 
     // time is variable out of scope at end of program 
 
+    // The String Type 
+    let food :&str = "pasta";
+    // str -> string literals very special -> varience of string datatype
+    // Not store on any data type 
+    // Directly converted into the Binary file during compile time 
     
+    // String datatype 
+    let mut name = String::new();
+    let name = String::from("Aditya");
+    //name = "Aditya";
+    println!("The datatype of food is {}", type_name_of_val(&food));
+    println!("The datatype of name is {}", type_name_of_val(&name));
+
+
 
 
     // age variable exists here
