@@ -62,6 +62,17 @@ fn main(){
     // error 
     // println!("{is_handsome}"); -> exist on diffent scope in the same function
     println!("age varaible {age}");// still work 
+
+    // Copy Trait 
+     
+    let time = 2025;
+    let year = time;
+
+    // Two seprate indepentend copy -> 
+    println!("This time is {time}. It is the year {year}");
+
+    // time is variable out of scope at end of program 
+
     
 
 
