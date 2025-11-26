@@ -102,6 +102,8 @@ fn main(){
     // this is valid 
     println!("My name is {person}");
     let phone = person;
+    drop(phone);
+    //  println!("the phone variable {phone}");
     // ->value borrowed here after move
     
 
@@ -112,6 +114,7 @@ fn main(){
     // age variable exists here
 }// age variable goes out of scope here 
  
+// drop()
 
 
 
