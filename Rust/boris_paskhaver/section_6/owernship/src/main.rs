@@ -54,15 +54,15 @@
 use  std::any::type_name_of_val;
 
 fn main(){
-    let age:i32 = 33;
+    let _age:i32 = 33;
 
     {
-        let is_handsome :bool = true;
+        let _is_handsome :bool = true;
     }
     // is_handsome variablbe goes out of scope here and clean up
     // error 
-    // println!("{is_handsome}"); -> exist on diffent scope in the same function
-    println!("age varaible {age}");// still work 
+    // println!("{_is_handsome}"); -> exist on diffent scope in the same function
+    println!("age varaible {_age}");// still work 
 
     // Copy Trait 
      
@@ -81,7 +81,7 @@ fn main(){
     // Directly converted into the Binary file during compile time 
     
     // String datatype 
-    let mut name = String::new();
+    let mut _name = String::new();
     let name = String::from("Aditya");
     //name = "Aditya";
     println!("The datatype of food is {}", type_name_of_val(&food));
@@ -95,5 +95,32 @@ fn main(){
     nano.push_str(" by TATA");
     println!("The car is {nano}");
 
+
+    // Moves and Ownership -> transfer of ownership from one another 
+
+    let person = String::from("Motorola");
+    // this is valid 
+    println!("My name is {person}");
+    let phone = person;
+    // ->value borrowed here after move
+    
+
+    // println!("{person}"); // -> Error value barrowed after move 
+                          // ^ value borrowed here after move 
+
+
     // age variable exists here
 }// age variable goes out of scope here 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
