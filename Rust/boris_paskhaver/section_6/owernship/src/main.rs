@@ -101,7 +101,7 @@ fn main(){
     let person = String::from("Motorola");
     // this is valid 
     println!("My name is {person}");
-    let phone = person;
+    let phone = person.clone();
     drop(phone);
     //  println!("the phone variable {phone}");
     // ->value borrowed here after move
