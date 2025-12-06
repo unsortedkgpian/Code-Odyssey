@@ -137,6 +137,13 @@ fn main(){
 
 
 
+    // Derefernce value * 
+    let my_integer_value :i32 = 2;
+    let my_stack_refernece = &my_integer_value;
+    println!("{}", *my_stack_refernece);
+    println!("{}" ,my_stack_refernece);
+
+    println!("Println! has automatic deref coercions, trait implementations and the behavior of the display/ Debug formatting system");
     // age variable exists here
 }// age variable goes out of scope here 
  
