@@ -110,6 +110,32 @@ fn main(){
     // println!("{person}"); // -> Error value barrowed after move 
                           // ^ value borrowed here after move 
 
+    let mut my_stack_value = 2;
+    let my_integer_reference = &my_stack_value;
+
+    println!("Test 1 my integer reference {my_integer_reference}");
+    //my_stack_value = 3;
+
+    println!("Test 1 original {my_stack_value}");
+    println!("Test 2 my integer reference {my_integer_reference}");
+    println!("\n type of my_integer_reference {}", type_name_of_val(&my_integer_reference));
+    my_stack_value = 3;
+
+
+    let my_heap_value = String::from("Mumbai"); 
+    let my_string_referene = &my_heap_value;
+
+    println!("Test new 1 my string reference is : {my_string_referene}");
+
+    println!("Test new 2 my string value is : {my_heap_value}");
+
+    // Browing means using somethings without taking owernship of it 
+    //  & Operator 
+    
+
+    // Reference must never outlive their referent 
+
+
 
     // age variable exists here
 }// age variable goes out of scope here 
