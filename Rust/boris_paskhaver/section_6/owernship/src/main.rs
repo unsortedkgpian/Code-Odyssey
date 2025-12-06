@@ -144,10 +144,52 @@ fn main(){
     println!("{}" ,my_stack_refernece);
 
     println!("Println! has automatic deref coercions, trait implementations and the behavior of the display/ Debug formatting system");
+
+
+    println!("\n\n\n\n");
+
+    println!("String - A dynamic piece of text stored on the heap at runtime");
+    println!("ref String- A reference  to a heap String");
+    println!(" Str - A hardcoded, read-only piece of text encoded in the binary");
+    println!("ref Str - A reference to the text in the memory that has loaded the binary file");
+
+    let apples = 32;
+    print_my_value(apples);
+
+    let oranges = String::from("Oranges");
+    print_my_string(oranges);// let value = oranges;
+    //println!("{oranges} is still valid"); 
+
+
+    let burger = String::from("Burger");
+    add_fries(burger);
+    //println!("{burger}");
+
+    let cake = bake_cake();
+
+    println!("I now have a {cake} cake");
+
     // age variable exists here
 }// age variable goes out of scope here 
  
 // drop()
+
+
+fn print_my_value(value:i32){
+    println!("Your value is {value}");
+}
+
+fn print_my_string(value:String){
+    println!("You string is {value}");
+}
+
+fn add_fries(mut meal:String){
+    meal.push_str(" and Fries");
+}
+
+fn bake_cake() -> String {
+    String::from("Chocolate Mousse")
+}
 
 
 
