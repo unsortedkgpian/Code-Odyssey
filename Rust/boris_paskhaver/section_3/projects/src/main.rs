@@ -31,4 +31,7 @@ fn main() {
 
     dbg!(tuple);
     
+    for value in tuple{
+        println!("The value is {value}");
+    }
 }
