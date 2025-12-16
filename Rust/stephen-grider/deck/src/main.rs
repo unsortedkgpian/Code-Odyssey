@@ -11,15 +11,18 @@ fn main() {
     // List of values - 'ace', 'two', 'three', 'four', 
     // Generating all type of list 
     let suits = ["Hearts", "Spades", "Diamonds", "Clubs"];
-    let values = ["Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve", "Jack", "Queen", "King"];
+    let values = ["Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King"];
+
+    let mut cards= vec![];
 
     for suit in suits {
         for value in values {
-            
+            let card = format!("{} of {}", value, suit);
+            cards.push(card);
         }
     }
 
-    let deck:Deck = Deck { cards : vec![] };
+    let deck:Deck = Deck { cards };
     let _deck1 : Deck = Deck { cards : Vec::new() };
 
     //println!("Hello, world!");
