@@ -5,6 +5,57 @@ enum Media{
     Audiobook{title: String},
 }
 
+impl Media {
+    fn description(&self) -> String{
+        //String::from("Media Description")
+        
+        if let Media::Book {title, author} = self {
+            format!("Book: {} {}", title, author)
+        }
+        else if let Media::Movie {title, director} = self {
+            format!("Movie: {} {}", title, director)
+        }else if let Media::Audiobook {title} = self {
+            format!("Audiobook: {}", title)
+        }else{
+            String::from("Not a media Decscription")
+        }
+     }
+}
+
+
+
+//fn print_book(book:Book)
+//fn print_movie(movie:Movie)
+//fn print_audiobook(audio:Audiobook)
+
+fn print_media(media: Media) {
+    println!("{:#?}", media);
+}
+
 fn main(){
     println!("Hello, world!");
+
+    let audiobook = Media::Audiobook{
+        title: String::from("An Audiobook"),
+    };
+    
+    let good_movie = Media::Movie{
+        title: String::from("Good Movie"),
+        director: String::from("Good Director"),
+    };
+
+    let bad_book = Media::Book {
+        title: String::from("Bad Money"),
+        author: String::from("Adi Bytess"),
+    };
+
+
+    println!("{}",audiobook.description());
+    println!("{}",good_movie.description());
+    println!("{}",bad_book.description());
+
+    print_media(audiobook);
+    print_media(good_movie);
+    print_media(bad_book);
+
 }
