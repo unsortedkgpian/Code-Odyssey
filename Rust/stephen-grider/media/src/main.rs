@@ -1,81 +1,93 @@
-#[derive(Debug)] 
-enum Media{
-    Book {title: String, author: String},
-    Movie{title: String, director:String},
-    Audiobook{title: String},
-    Podcast(u32),
-    Placeholder
-}
+// #[derive(Debug)] 
+// enum Media{
+//     Book {title: String, author: String},
+//     Movie{title: String, director:String},
+//     Audiobook{title: String},
+//     Podcast(u32),
+//     Placeholder
+// }
 
-impl Media {
-    fn description(&self) -> String{
-        //String::from("Media Description")
+// impl Media {
+//     fn description(&self) -> String{
+//         //String::from("Media Description")
         
-        //if let Media::Book {title, author} = self {
-        //    format!("Book: {} {}", title, author)
-        //}
-        //else if let Media::Movie {title, director} = self {
-        //    format!("Movie: {} {}", title, director)
-        //}else if let Media::Audiobook {title} = self {
-        //    format!("Audiobook: {}", title)
-        //}else{
-        //    String::from("Not a media Decscription")
-        //}
+//         //if let Media::Book {title, author} = self {
+//         //    format!("Book: {} {}", title, author)
+//         //}
+//         //else if let Media::Movie {title, director} = self {
+//         //    format!("Movie: {} {}", title, director)
+//         //}else if let Media::Audiobook {title} = self {
+//         //    format!("Audiobook: {}", title)
+//         //}else{
+//         //    String::from("Not a media Decscription")
+//         //}
         
 
 
 
-        match self {
-            Media::Book {title, author} => {
-                format!("Book: {} {}", title, author)
-            },
-            Media::Movie {title, director} => {
-                format!("Movie: {} {}", title, director)
-            }, 
-            Media::Audiobook {title} => {
-                format!("Audiobook {} ", title)
-            },
-            Media::Podcast(episode_number) => {
-                format!("Podcast ep no : {}", episode_number)
-            },
-            Media::Placeholder => {
-                String::from("Just a Placeholder")
-            }
-        }
-    }
-}
-
-#[derive(Debug)]
-struct Catalog {
-    items:Vec<Media>
-}
-
-impl Catalog {
-    fn new() -> Self {
-        Catalog {items: vec![]}
-    }
-
-    fn add(&mut self, media: Media) {
-        self.items.push(media);
-    }
-
-    fn get_by_index(&self , index:usize) -> MightHaveAValue{
-        if self.items.len() > index {
-            MightHaveAValue::ThereIsAValue(&self.items[index])
-        }else{
-            MightHaveAValue::NoValueAvailable
-        }
-        //&self.items[index]
+//         match self {
+//             Media::Book {title, author} => {
+//                 format!("Book: {} {}", title, author)
+//             },
+//             Media::Movie {title, director} => {
+//                 format!("Movie: {} {}", title, director)
+//             }, 
+//             Media::Audiobook {title} => {
+//                 format!("Audiobook {} ", title)
+//             },
+//             Media::Podcast(episode_number) => {
+//                 format!("Podcast ep no : {}", episode_number)
+//             },
+//             Media::Placeholder => {
+//                 String::from("Just a Placeholder")
+//             }
+//         }
+//     }
+// }
 
 
-    }
-}
+// #[derive(Debug)]
+// struct Catalog {
+//     items:Vec<Media>
+// }
+
+// impl Catalog {
+//     fn new() -> Self {
+//         Catalog {items: vec![]}
+//     }
+
+//     fn add(&mut self, media: Media) {
+//         self.items.push(media);
+//     }
+
+//     fn get_by_Index(&self , index:usize) -> MightHaveAValue{
+//         if self.items.len() > index {
+//             MightHaveAValue::ThereIsAValue(&self.items[index])
+//         }else{
+//             MightHaveAValue::NoValueAvailable
+//         }
+//         //&self.items[index]
+//     }
+
+//     fn get_by_index(&self, index:usize) -> Option<&Media> {
+//         if self.items.len() > index {
+//             Some(&self.items[index])
+//         }else{
+//             None
+//         }
+//     }
+// }
 
 
-enum MightHaveAValue<'a> {
-    ThereIsAValue(&'a Media),
-    NoValueAvailable,
-}
+mod content;
+use content::media::Media;
+use content::catalog::Catalog;
+use content::catalog::MightHaveAValue;
+
+// enum MightHaveAValue<'a> {
+//     ThereIsAValue(&'a Media),
+//     NoValueAvailable,
+// }
 
 //fn print_book(book:Book)
 //fn print_movie(movie:Movie)
@@ -146,7 +158,7 @@ fn main(){
     //let undefineitem = catalog.get_by_index(24);
     //println!("{:#?}",undefineitem);
     
-    match catalog.get_by_index(70) {
+    match catalog.get_by_Index(70) {
         MightHaveAValue::ThereIsAValue(value)=>{
             println!("Item: {:#?}", value);
         }
@@ -155,4 +167,28 @@ fn main(){
         }
     }
 
+
+    if let MightHaveAValue::ThereIsAValue(value) = catalog.get_by_Index(9) {
+        println!("There is something in it {:#?}",value);
+    }else{
+        println!("No vlaue !!!!!!!!!!!!!!!!!!!!!!!!!!");
+    }
+
+
+    if let Some(value) = catalog.get_by_index(9990){
+        println!("Item in patternn match: {:#?}", value)
+    }else {
+        println!("No value !!!!!!!!!!!!!!!!!");
+    }
+
+
+    let item = catalog.get_by_index(40);
+
+    // unwrap -> panic when None
+    //println!("{:#?}", item.unwrap());
+
+    // panic with error message
+    //println!("{:#?}", item.expect("Experted to be an Media item"));
+    
+    println!("{:#?}",item.unwrap_or(&Media::Placeholder));
 }
