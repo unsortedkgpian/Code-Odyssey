@@ -9,13 +9,27 @@ fn temp_string_test(
 
 }
 
-fn main() {
+fn extract_errors(text: &str) -> Vec<String> {
+    let split_text = text.split("\n");
+    let mut results = vec![];
+
+    for line in split_text {
+        if line.starts_with("ERROR"){
+            results.push(line.to_string());
+        }
+    }
+
+    results
+}
+
+
+fn main() -> Result<(), Error>{
     //println!("Hello, world!");
     temp_string_test(
         String::from("red"),
         &String::from("red"),
         "red"
-    )
+    );
 
 
 
@@ -48,6 +62,47 @@ fn main() {
             println!("Somthing went wrong Error{}",err );
         }
     }
+
+    let color = String::from("red");
+    let c = color.as_str();
+    println!("{}",color);
+
+    let color = String::from("blue");
+    let portion = &color[1..4];
+    println!("{}",portion);
+
+
+    let mut error_logs = vec![];
+    match fs::read_to_string("logs.txt"){
+        Ok(value) => {
+            error_logs = extract_errors(&value);
+            //println!("{:#?}",error_logs);
+            match fs::write("errors.txt", error_logs.join("\n")){
+                Ok(_) => println!("Wrote errors.txt"),
+                Err(error) => println!("Failed: {}", error)
+            }
+        }
+        Err(err) => {
+            println!("{}", err);
+        }
+    };
+    println!("{:#?}",error_logs);
+
+
+    let mini = fs::read_to_string("logs.txt").expect("failed to read logs.txt");
+    let mini_error_logs = extract_errors(mini.as_str());
+    fs::write("mini_error.txt",mini_error_logs.join("\n")).expect("failed to write mini_error.txt");
+
+
+
+    // best part 
+    let adtext = fs::read_to_string("logs.txt")?;
+    println!("{}",adtext.len());
+
+    let aderror_logs = extract_errors(adtext.as_str());
+    fs::write("adderrors.txt",error_logs.join("\n"))?;
+
+    Ok(())
 }
 
 
