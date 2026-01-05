@@ -106,5 +106,6 @@ fn main() {
     //println!("{:#?}",colors_iter.next());
     //println!("{:#?}",colors_iter.next());
     //println!("{:#?}",colors_iter.next());
-    let found_color = find_color_or(&colors, "re", "Orange")
+    let found_color = find_color_or(&colors, "osk", "Not found");
+    println!("{}", found_color);
 }
