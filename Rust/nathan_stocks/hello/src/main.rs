@@ -1,3 +1,6 @@
+use hello::greet;
+use std::collections::HashMap;
+
 fn main() {
     let bunnies:i32 =3;
     println!("Hello, world!");
@@ -41,5 +44,26 @@ fn main() {
 
     println!("enigma is {}", enigma);
 
+
+    hello::greet();
+    greet();
+
+    let num = 1;
+    let msg = if num ==5{
+        "five"
+    }else if num == 4{
+        "four"
+    }else{
+        "other"
+    };
+
+    println!("{}", msg);
+
+    let mut s1 =  String::from("Hi how are you");
+    let s2 = s1;
+    // println!("{}",s1);
     
 }
+
+
+
