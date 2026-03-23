@@ -4,6 +4,7 @@ mod auth;
 mod schema;
 mod models;
 
+use diesel::sql_types::Json;
 use schema::rustaceans;
 
 
@@ -14,7 +15,9 @@ use rocket::response::status;
 use rocket_sync_db_pools::database;
 
 use diesel::prelude::*;
-use models::Rustacean;
+use models::{Rustacean , NewRustacean};
+
+// use crate::models::NewRustacean;
 
 // use crate::schema::rustaceans;
 
@@ -125,9 +128,16 @@ fn view_rustaceans(id:i32, _auth: BasicAuth) -> Value{
     json!({"id":id, "name": "John Doe", "email":"john@doe.com"})
 }
 
-#[post("/rustaceans", format="json")]
-fn create_rustacean(_auth: BasicAuth, db: DbConn) -> Value{
-    json!({"id":3, "name":"John Doe", "email":"john@doe.com"})
+#[post("/rustaceans", format="json", data = "<new_rustacean>")]
+async fn create_rustacean(_auth: BasicAuth, db: DbConn, new_rustacean:Json<NewRustacean>) -> Value{
+    // json!({"id":3, "name":"John Doe", "email":"john@doe.com"})
+    db.run(|c|{
+        let result = diesel::insert_into(rustaceans::table)
+            .values(new_rustacean.into())
+            .execute(c)
+            .expect("DB error  when  inserting");
+        json!(result)
+    }).await
 }
 
 #[put("/rustaceans/<id>", format="json")]
