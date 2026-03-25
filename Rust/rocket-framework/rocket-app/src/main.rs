@@ -3,19 +3,29 @@
 mod auth;
 mod schema;
 mod models;
+mod repositories;
 
-use diesel::sql_types::Json;
-use schema::rustaceans;
+
+use rocket::Rocket;
+use rocket::fairing::AdHoc;
+use rocket::http::Status;
+// use diesel::sql_types::Json;
+use rocket::serde::json::Json;
+// use schema::rustaceans;
 
 
 use auth::BasicAuth;
 // use rocket::http::Status;
 use rocket::serde::json::{Value, json};
-use rocket::response::status;
+use rocket::response::status::{self, Custom};
 use rocket_sync_db_pools::database;
 
-use diesel::prelude::*;
+
+// use diesel::prelude::*;
 use models::{Rustacean , NewRustacean};
+use  repositories::RustaceanRepository;
+
+// use crate::schema::rustaceans;
 
 // use crate::models::NewRustacean;
 
@@ -109,45 +119,170 @@ fn unauthorized() -> Value{
     json!("You are imposter \n")
 }
 
+#[catch(422)]
+fn unprocessabe() -> Value{
+    json!("You have entered something wrong correct it")
+}
+
 #[get("/rustaceans")]
-async fn get_rustaceans(_auth: BasicAuth, db: DbConn) -> Value{
+// async fn get_rustaceans(_auth: BasicAuth, db: DbConn) -> Value{
+async fn get_rustaceans(_auth: BasicAuth, db: DbConn) -> Result<Value, Custom<Value>>{
     // json!([{"id":1, "name":"John Doe"}, {"id":2, "name":"John Doe again"}, {"Hi":_auth},  {"db":"comming soon"}])
+    // db.run(|c|{
+    //     let rustaceans = rustaceans::table
+    //         .order(rustaceans::id.desc())
+    //         .limit(1000)
+    //         .select(Rustacean::as_select())
+    //         .load::<Rustacean>(c)
+    //         .expect("DB error");
+    //     json!(rustaceans)
+    // }).await
     db.run(|c|{
-        let rustaceans = rustaceans::table
-            .order(rustaceans::id.desc())
-            .limit(1000)
-            .select(Rustacean::as_select())
-            .load::<Rustacean>(c)
-            .expect("DB error");
-        json!(rustaceans)
+        RustaceanRepository::find_multiple(c, 1000)
+            .map(|rustaceans| json!(rustaceans))
+            .map_err(|e| Custom(Status::InternalServerError, json!(e.to_string())))
     }).await
 }
 
 #[get("/rustaceans/<id>")]
-fn view_rustaceans(id:i32, _auth: BasicAuth) -> Value{
-    json!({"id":id, "name": "John Doe", "email":"john@doe.com"})
-}
+async fn view_rustaceans(id:i32, _auth: BasicAuth, db:DbConn) -> Result<Value, Custom<Value>>{
+    // json!({"id":id, "name": "John Doe", "email":"john@doe.com"})
+    // db.run(move |c|{
+    //     let  rustaceans = rustaceans::table
+    //         .find(id)
+    //         .get_result::<Rustacean>(c)
+    //         .expect("DB error when selecting rustanceans");
+    //     json!(rustaceans)
+    // }).await
 
-#[post("/rustaceans", format="json", data = "<new_rustacean>")]
-async fn create_rustacean(_auth: BasicAuth, db: DbConn, new_rustacean:Json<NewRustacean>) -> Value{
-    // json!({"id":3, "name":"John Doe", "email":"john@doe.com"})
-    db.run(|c|{
-        let result = diesel::insert_into(rustaceans::table)
-            .values(new_rustacean.into())
-            .execute(c)
-            .expect("DB error  when  inserting");
-        json!(result)
+    db.run(move |c|{
+        RustaceanRepository::find(c, id)
+            .map(|rustaceans| json!(rustaceans))
+            .map_err(|e| Custom(Status::InternalServerError, json!(e.to_string())))
     }).await
 }
 
-#[put("/rustaceans/<id>", format="json")]
-fn update_rustacean(id: i32, _auth: BasicAuth) -> Value{
-    json!({"id":id, "name":"John Doe", "email":"john@doe.com"})
+#[post("/rustaceans", format="json", data = "<new_rustacean>")]
+async fn create_rustacean(_auth: BasicAuth, db: DbConn, new_rustacean:Json<NewRustacean>) -> Result<Value, Custom<Value>>{
+    // json!({"id":3, "name":"John Doe", "email":"john@doe.com"})
+
+    // let new_rustacean = new_rustacean.into_inner();
+
+    // db.run(|c|{
+    //     let result = diesel::insert_into(rustaceans::table)
+    //         .values(&new_rustacean)
+    //         .execute(c)
+    //         .expect("DB error  when  inserting");
+    //     json!(result)
+    // }).await
+    // db.run(|c|{
+    //     let result = diesel::insert_into(rustaceans::table)
+    //         .values(new_rustacean.into_inner())
+    //         .execute(c)
+    //         .expect("DB error when inserting");
+    //     json!(result)
+    // }).await
+    db.run(|c|{
+        RustaceanRepository::create(c, new_rustacean.into_inner())
+            .map(|rustaceans| json!(rustaceans))
+            .map_err(|e| Custom(Status::InternalServerError, json!(e.to_string())))
+    }).await
 }
 
-#[delete("/rustaceans/<_id>")]
-fn delete_rustanean(_id: i32, _auth: BasicAuth) -> status::NoContent{
-    status::NoContent 
+#[put("/rustaceans/<id>", format="json", data="<rustacean>")]
+async fn update_rustacean(id: i32, db: DbConn, _auth: BasicAuth, rustacean: Json<Rustacean>) -> Result<Value, Custom<Value>>{
+    // json!({"id":id, "name":"John Doe", "email":"john@doe.com"})
+    db.run(move |c|{
+        RustaceanRepository::save(c,id, rustacean.into_inner())
+            .map(|rustaceans| json!(rustaceans))
+            .map_err(|e| Custom(Status::InternalServerError, json!(e.to_string())))
+    }).await
+}
+
+// #[delete("/rustaceans/<id>")]
+// async fn delete_rustanean(id: i32, db: DbConn, _auth: BasicAuth) -> Result<status::NoContent, Custom<Value>>{
+//     // status::NoContent 
+//     db.run(move |c|{
+//         // diesel::delete(rustaceans::table.find(id))
+//         //     .execute(c)
+
+//         match RustaceanRepository::find(c, id){
+//             Ok(_) => {
+//                 RustaceanRepository::delete(c, id)
+//                     .map(|_| status::NoContent)
+//                     .map_err(|e|{
+//                         Custom(Status::InternalServerError, json!(e.to_string()))
+//                     })
+//             }
+
+//             Err(diesel::result::Error::NotFound) =>{
+//                 Err(Custom(
+//                     Status::NotFound,
+//                     json!({"error":"Rustacean not found"})
+//                 ))
+//             }
+
+//             Err(e) => {
+//                 Err(Custom())
+//             }
+//         }
+
+//         RustaceanRepository::delete(c, id)
+//             .map(|_| status::NoContent)
+//             .map_err(|e| Custom(Status::InternalServerError, json!(e.to_string())))
+//     }).await
+// }
+
+#[delete("/rustaceans/<id>")]
+async fn delete_rustanean(
+    id: i32,
+    db: DbConn,
+    _auth: BasicAuth
+) -> Result<status::NoContent, Custom<Value>> {
+
+    db.run(move |c| {
+        match RustaceanRepository::find(c, id) {
+            Ok(_) => {
+                // ✅ exists → delete
+                RustaceanRepository::delete(c, id)
+                    .map(|_| status::NoContent)
+                    .map_err(|e| {
+                        Custom(Status::InternalServerError, json!(e.to_string()))
+                    })
+            }
+
+            Err(diesel::result::Error::NotFound) => {
+                // ✅ not found → 404
+                Err(Custom(
+                    Status::NotFound,
+                    json!({"error": "Rustacean not found"})
+                ))
+            }
+
+            Err(e) => {
+                // ✅ other errors
+                Err(Custom(
+                    Status::InternalServerError,
+                    json!(e.to_string())
+                ))
+            }
+        }
+    }).await
+}
+
+async fn run_db_migration(rocket: Rocket<Build> )-> Rocket<Build> {
+    use diesel_migrations::{embed_migrations, EmbeddedMigrations, MigrationHarness};
+
+    const MIGRATIONS: EmbeddedMigrations = embed_migrations!();
+
+    DbConn::get_one(&rocket)
+        .await
+        .expect("Unable to reterive connection").run(|c|{
+            c.run_pending_migrations(MIGRATIONS).expect("Migrations failed")
+        })
+        .await;
+
+    rocket
 }
 
 #[rocket::main]
@@ -164,9 +299,11 @@ async fn main(){
         ])
         .register("/", catchers![
             not_found,
-            unauthorized
+            unauthorized,
+            unprocessabe
         ])
         .attach(DbConn::fairing())
+        .attach(AdHoc::on_ignite("Diesel Migration", run_db_migration))
         .launch()
         .await;
 }

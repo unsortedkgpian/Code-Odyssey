@@ -1,0 +1,11 @@
+/home/aditya/Documents/Code Odyssey/Rust/rocket-framework/rocket-app/target/release/deps/ubyte-fe89f7d0389378f6.d: /home/aditya/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ubyte-0.10.4/src/lib.rs /home/aditya/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ubyte-0.10.4/src/arithmetic.rs /home/aditya/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ubyte-0.10.4/src/byte_unit.rs /home/aditya/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ubyte-0.10.4/src/parse.rs /home/aditya/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ubyte-0.10.4/src/ser_de.rs
+
+/home/aditya/Documents/Code Odyssey/Rust/rocket-framework/rocket-app/target/release/deps/libubyte-fe89f7d0389378f6.rlib: /home/aditya/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ubyte-0.10.4/src/lib.rs /home/aditya/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ubyte-0.10.4/src/arithmetic.rs /home/aditya/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ubyte-0.10.4/src/byte_unit.rs /home/aditya/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ubyte-0.10.4/src/parse.rs /home/aditya/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ubyte-0.10.4/src/ser_de.rs
+
+/home/aditya/Documents/Code Odyssey/Rust/rocket-framework/rocket-app/target/release/deps/libubyte-fe89f7d0389378f6.rmeta: /home/aditya/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ubyte-0.10.4/src/lib.rs /home/aditya/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ubyte-0.10.4/src/arithmetic.rs /home/aditya/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ubyte-0.10.4/src/byte_unit.rs /home/aditya/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ubyte-0.10.4/src/parse.rs /home/aditya/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ubyte-0.10.4/src/ser_de.rs
+
+/home/aditya/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ubyte-0.10.4/src/lib.rs:
+/home/aditya/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ubyte-0.10.4/src/arithmetic.rs:
+/home/aditya/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ubyte-0.10.4/src/byte_unit.rs:
+/home/aditya/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ubyte-0.10.4/src/parse.rs:
+/home/aditya/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ubyte-0.10.4/src/ser_de.rs:

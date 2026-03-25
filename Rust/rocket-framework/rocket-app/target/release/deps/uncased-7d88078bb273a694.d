@@ -1,0 +1,11 @@
+/home/aditya/Documents/Code Odyssey/Rust/rocket-framework/rocket-app/target/release/deps/uncased-7d88078bb273a694.d: /home/aditya/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/uncased-0.9.10/src/lib.rs /home/aditya/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/uncased-0.9.10/src/serde.rs /home/aditya/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/uncased-0.9.10/src/owned.rs /home/aditya/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/uncased-0.9.10/src/borrowed.rs /home/aditya/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/uncased-0.9.10/src/as_uncased.rs
+
+/home/aditya/Documents/Code Odyssey/Rust/rocket-framework/rocket-app/target/release/deps/libuncased-7d88078bb273a694.rlib: /home/aditya/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/uncased-0.9.10/src/lib.rs /home/aditya/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/uncased-0.9.10/src/serde.rs /home/aditya/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/uncased-0.9.10/src/owned.rs /home/aditya/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/uncased-0.9.10/src/borrowed.rs /home/aditya/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/uncased-0.9.10/src/as_uncased.rs
+
+/home/aditya/Documents/Code Odyssey/Rust/rocket-framework/rocket-app/target/release/deps/libuncased-7d88078bb273a694.rmeta: /home/aditya/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/uncased-0.9.10/src/lib.rs /home/aditya/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/uncased-0.9.10/src/serde.rs /home/aditya/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/uncased-0.9.10/src/owned.rs /home/aditya/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/uncased-0.9.10/src/borrowed.rs /home/aditya/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/uncased-0.9.10/src/as_uncased.rs
+
+/home/aditya/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/uncased-0.9.10/src/lib.rs:
+/home/aditya/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/uncased-0.9.10/src/serde.rs:
+/home/aditya/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/uncased-0.9.10/src/owned.rs:
+/home/aditya/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/uncased-0.9.10/src/borrowed.rs:
+/home/aditya/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/uncased-0.9.10/src/as_uncased.rs:

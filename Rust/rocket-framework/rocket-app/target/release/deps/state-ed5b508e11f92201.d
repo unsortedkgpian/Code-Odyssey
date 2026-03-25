@@ -1,0 +1,12 @@
+/home/aditya/Documents/Code Odyssey/Rust/rocket-framework/rocket-app/target/release/deps/state-ed5b508e11f92201.d: /home/aditya/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/state-0.6.0/src/lib.rs /home/aditya/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/state-0.6.0/src/ident_hash.rs /home/aditya/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/state-0.6.0/src/cell.rs /home/aditya/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/state-0.6.0/src/init.rs /home/aditya/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/state-0.6.0/src/shim.rs /home/aditya/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/state-0.6.0/src/type_map.rs
+
+/home/aditya/Documents/Code Odyssey/Rust/rocket-framework/rocket-app/target/release/deps/libstate-ed5b508e11f92201.rlib: /home/aditya/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/state-0.6.0/src/lib.rs /home/aditya/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/state-0.6.0/src/ident_hash.rs /home/aditya/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/state-0.6.0/src/cell.rs /home/aditya/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/state-0.6.0/src/init.rs /home/aditya/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/state-0.6.0/src/shim.rs /home/aditya/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/state-0.6.0/src/type_map.rs
+
+/home/aditya/Documents/Code Odyssey/Rust/rocket-framework/rocket-app/target/release/deps/libstate-ed5b508e11f92201.rmeta: /home/aditya/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/state-0.6.0/src/lib.rs /home/aditya/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/state-0.6.0/src/ident_hash.rs /home/aditya/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/state-0.6.0/src/cell.rs /home/aditya/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/state-0.6.0/src/init.rs /home/aditya/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/state-0.6.0/src/shim.rs /home/aditya/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/state-0.6.0/src/type_map.rs
+
+/home/aditya/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/state-0.6.0/src/lib.rs:
+/home/aditya/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/state-0.6.0/src/ident_hash.rs:
+/home/aditya/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/state-0.6.0/src/cell.rs:
+/home/aditya/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/state-0.6.0/src/init.rs:
+/home/aditya/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/state-0.6.0/src/shim.rs:
+/home/aditya/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/state-0.6.0/src/type_map.rs:
