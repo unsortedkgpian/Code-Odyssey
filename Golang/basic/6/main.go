@@ -14,6 +14,16 @@ type saver interface {
 }
 
 
+type displayer interface {
+	Display()
+}
+
+type outputtable interface {
+	Save() error
+	Display()
+}
+
+
 func main(){
 	
 	title, content := getNoteData()
@@ -46,6 +56,36 @@ func main(){
 
 	userNote.Display()
 	saveData(userNote)
+
+	anyvalueOutput("5")
+}
+
+
+func outputData(data outputtable){
+	data.Display()
+	saveData(data)
+}
+
+func anyvalueOutput(value interface{} ){
+	fmt.Printf("Type: %T, Value: %v \n", value, value)
+
+	switch value.(type) {
+	case int:
+		fmt.Println("Type got messedup : int ", value)
+	
+	case float64:
+		fmt.Println("I dnotkdkf")
+
+	default:
+		fmt.Println("we don't know what to do with you")
+	}
+
+
+	intValue, ok := value.(int)
+
+	if ok {
+		fmt.Println("Integers: ", intValue)
+	}
 }
 
 // func getTodoData() string {
