@@ -16,5 +16,10 @@ git show HEAD
 
 git show user
 
-git commit open the vim 
--> chage to nvim
+git commit open the vim -> nvim
+
+
+Amending commit 
+git commit --amend -> just one commit ago
+
+git branch -- list all branch * -> active/current
