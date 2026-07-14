@@ -12,4 +12,4 @@ func main(){
 
 	fmt.Println(website)
 	fmt.Println(website["Google"])
-}
+} 

@@ -1,0 +1,10 @@
+git log --oneline --> git history
+
+git config --list ---> full settings
+
+git config --global
+
+
+git --version
+
+git status
