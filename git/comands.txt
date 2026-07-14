@@ -23,3 +23,9 @@ Amending commit
 git commit --amend -> just one commit ago
 
 git branch -- list all branch * -> active/current
+
+switching branches
+git switch <branchname>
+
+HEAD -> points to latest commit 
+
