@@ -7,4 +7,9 @@ git config --global
 
 git --version
 
-git status
+git status --> Run everytime before gitstatus
+:
+
+git init
+
+git show HEAD 
