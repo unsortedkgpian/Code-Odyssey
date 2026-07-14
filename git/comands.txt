@@ -13,3 +13,8 @@ git status --> Run everytime before gitstatus
 git init
 
 git show HEAD 
+
+git show user
+
+git commit open the vim 
+-> chage to nvim
