@@ -21,6 +21,7 @@ git commit open the vim -> nvim
 
 Amending commit 
 git commit --amend -> just one commit ago
+git commit -a 
 
 git branch -- list all branch * -> active/current
 
@@ -28,4 +29,14 @@ switching branches
 git switch <branchname>
 
 HEAD -> points to latest commit 
+
+git branch -d <branchname>-> delete
+
+git branch -M <branchname> -> rename
+
+Merging 
+first switch to branch i want to merge in
+git merge <brancchname i want to merge>
+git 
+
 
