@@ -39,4 +39,11 @@ first switch to branch i want to merge in
 git merge <brancchname i want to merge>
 git 
 
+// Merging will done edit the file and fix it and save commit 
 
+"<<<<< HEAD"
+"========"
+">>>>>> bugfix"
+
+git checkout -b ksjdkfjs
+tell the to create new branch
