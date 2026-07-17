@@ -47,3 +47,22 @@ git
 
 git checkout -b ksjdkfjs
 tell the to create new branch
+
+
+git diff -> unsaved and last commit 
+git diff a_commit b_commit 
+git diff HEAD 
+
+
+stashing 
+save the uncommit changes and allow to change the branch it will work 
+
+git stash 
+git stash pop
+
+git stash apply-> multiple branches
+
+git stash multiple 14:28
+git stash list 
+
+git stash apply stash@{2}
