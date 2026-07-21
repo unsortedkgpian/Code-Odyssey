@@ -66,3 +66,21 @@ git stash multiple 14:28
 git stash list 
 
 git stash apply stash@{2}
+
+
+
+
+// time traveling with git checkout
+
+git log 
+git log --oneline 
+git status 
+
+// first seven digit requires only 
+
+git checkout <7digit>
+
+HEAD points out to the current branch in which are and the master points to current commit 
+
+
+when we checkout to some commit it points directlry to the commit 
