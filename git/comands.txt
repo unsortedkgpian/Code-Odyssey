@@ -93,3 +93,24 @@ git chekout branch directlry tranfer u branch to head to lestest thing
 
 git switch - 
 // to the latest branch
+
+
+git checkout HEAD <filename> -> discarding changes 
+
+git checkout -- <filename> -> discarding changes
+
+git restore <filename> -> undoing changes 
+git restore --source HEAD~1 <filename>
+
+
+git restore --staged <filename> 
+// unstaged the file  opposite of git add .
+
+
+git restore <commit> -> remove all the commit and store the file 
+git restore --hard <commit> -> remove evelryting till the commit 
+git restore --hard HEAD~1 
+
+
+// REVERT make a new commit -> and restore all the changes it mean we havn't lost anything
+git commit <commit-hash>
