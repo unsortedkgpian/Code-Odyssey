@@ -84,3 +84,12 @@ HEAD points out to the current branch in which are and the master points to curr
 
 
 when we checkout to some commit it points directlry to the commit 
+
+// different syntex 
+git chekout HEAD~1 
+// here 1 mean before one commit before HEAD 
+
+git chekout branch directlry tranfer u branch to head to lestest thing
+
+git switch - 
+// to the latest branch
