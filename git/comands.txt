@@ -114,3 +114,21 @@ git restore --hard HEAD~1
 
 // REVERT make a new commit -> and restore all the changes it mean we havn't lost anything
 git commit <commit-hash>
+
+
+git tags 
+
+v1.1.23 is pointer to git commit  
+
+lightweight tags and annotated tags
+
+git hash-object <file> 
+gitt hash-object --stdin 
+-w -> store
+
+git cat-file -p <object_hash> 
+
+
+// Reflog ----> live saver 
+
+git reflog show HEAD 
